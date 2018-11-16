@@ -1,0 +1,28 @@
+type UserConnection {
+  nodes: [User]
+  pageInfo: PageInfo
+}
+
+type User {
+  id: ID!
+  first_name: String
+  last_name: String
+  email: String @auth
+  blogs: [Blog] @hasMany
+  created_at: String @date
+  updated_at: String @date
+}
+
+input createUserInput {
+  first_name: String!
+  last_name: String!
+  email: String!
+  password: String!
+}
+
+input updateUserInput {
+  first_name: String
+  last_name: String
+  email: String
+  password: String
+}

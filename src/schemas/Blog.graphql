@@ -1,0 +1,13 @@
+type BlogConnection {
+  nodes: [Blog]
+  pageInfo: PageInfo
+}
+
+type Blog {
+  id: ID!
+  user: User @hasOne
+  title: String
+  content: String
+  created_at: String @date
+  updated_at: String @date
+}

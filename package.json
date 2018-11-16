@@ -1,0 +1,38 @@
+{
+  "name": "graphql-apollo-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node server.js",
+    "db:migrate": "knex migrate:latest --knexfile=database/knexfile.js",
+    "db:migrate:make": "knex migrate:make --knexfile=database/knexfile.js",
+    "db:seed": "knex seed:run --knexfile=database/knexfile.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^2.2.2",
+    "bcrypt": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "graphql": "^14.0.2",
+    "indicative": "^5.0.8",
+    "knex": "^0.15.2",
+    "merge-graphql-schemas": "^1.5.8",
+    "moment": "^2.22.2",
+    "mysql": "^2.16.0",
+    "objection": "^1.4.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-import-graphql": "^2.6.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "casual": "^1.5.19",
+    "nodemon": "^1.18.6"
+  }
+}

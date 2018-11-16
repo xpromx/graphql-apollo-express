@@ -1,0 +1,72 @@
+# Scalar
+scalar JSON
+
+# Query
+type Query {
+  hello: String
+  users(query: SearchFields): UserConnection @paginate
+  user(id: ID!): User @findById
+  blogs(query: SearchFields): BlogConnection @paginate
+  blog(id: ID!): Blog @findById
+}
+
+# Mutations
+type Mutation {
+  # User
+  Authenticate(email: String!, password: String!): User
+  createUser(data: createUserInput): User @create
+  updateUser(id: ID!, data: updateUserInput): User @update
+  deleteUser(id: ID!): User @delete @auth
+}
+
+# SearchFilter
+input SearchFields {
+  limit: Int
+  page: Int
+  orderBy: OrderBy
+  filters: [SearchFilter]
+}
+
+type PageInfo {
+  current_page: Int
+  next_page: Int
+  prev_page: Int
+  last_page: Int
+  per_page: Int
+  total: Int
+}
+
+input OrderBy {
+  field: String
+  sort: OrderBySort
+}
+
+enum OrderBySort {
+  ASC
+  DESC
+}
+
+enum FilterCondition {
+  GT
+  GTE
+  LT
+  LTE
+  EQUAL
+  CONTAINS
+  NOT_CONTAINS
+  STARTS_WITH
+  ENDS_WTIH
+  IN
+  NOT_IN
+  NOT_EQUAL
+  NULL
+  NOT_NULL
+  BETWEEN
+  NOT_BETWEEN
+}
+
+input SearchFilter {
+  field: String
+  condition: FilterCondition
+  value: String
+}

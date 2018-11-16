@@ -1,0 +1,28 @@
+directive @auth(role: AuthRole = USER) on FIELD_DEFINITION
+
+directive @date(format: String = "D/M/YYYY") on FIELD_DEFINITION
+
+directive @json on FIELD_DEFINITION
+
+directive @media(collection: String = "default") on FIELD_DEFINITION
+
+directive @paginate on FIELD_DEFINITION
+
+directive @hasOne(field: String) on FIELD_DEFINITION
+
+directive @hasMany(field: String) on FIELD_DEFINITION
+
+directive @hasPolymorphic on FIELD_DEFINITION
+
+directive @findById on FIELD_DEFINITION
+
+directive @create on FIELD_DEFINITION
+
+directive @update on FIELD_DEFINITION
+
+directive @delete on FIELD_DEFINITION
+
+enum AuthRole {
+  USER
+  ADMIN
+}
