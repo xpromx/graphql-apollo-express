@@ -14,7 +14,7 @@ class AuthDirective extends SchemaDirectiveVisitor {
       const info = args[4]
 
       if (!context.auth) {
-        if (info.operation.operation === 'mutation') {
+        if ('operation' in info && info.operation.operation === 'mutation') {
           throw new AuthenticationError('you must be logged in')
         }
 

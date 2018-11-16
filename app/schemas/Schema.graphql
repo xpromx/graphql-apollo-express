@@ -4,6 +4,7 @@ scalar JSON
 # Query
 type Query {
   hello: String
+  locale: String
   users(query: SearchFields): UserConnection @paginate
   user(id: ID!): User @findById
   blogs(query: SearchFields): BlogConnection @paginate
