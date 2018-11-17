@@ -26,7 +26,7 @@ npm db:seed
 the GraphQL schemas can be found in `/app/schemas` folder, all the files .graphql in that folder will be loaded automatically and combined
 
 ## Directives
-All default directives are located in `/app/directives.js`  and `/app/schema/Directives.graphql` 
+All default directives are located in `/config/graphql/directives.js`  and `/app/schema/Directives.graphql` 
 ```
 check the examples in the project
 ```

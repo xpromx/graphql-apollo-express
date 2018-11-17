@@ -2,33 +2,19 @@ import 'dotenv/config'
 import express from 'express'
 import { ApolloServer } from 'apollo-server-express'
 import cors from 'cors'
-import resolvers from './config/resolvers'
-import context from './config/context'
-import * as schemaDirectives from './config/directives'
-import typeDefs from './config/schema'
-import formatError from './config/errors'
-import detectLanguage from 'detect-language'
-import locales from './config/locales'
+import config from './config/graphql'
+import * as middlewares from './config/middlewares'
 import './app/helpers/validation'
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  context,
-  schemaDirectives,
-  formatError
-})
+const server = new ApolloServer(config)
 
 const app = express()
+app.use(express.static('storage'))
 
 // middlewares
-app.use(cors())
-app.use(
-  detectLanguage({
-    supportedLanguages: Object.keys(locales),
-    defaultLanguage: process.env.LOCALE || 'en'
-  })
-)
+Object.keys(middlewares).map((key) => {
+  middlewares[key](app)
+})
 
 // GraphQL server
 server.applyMiddleware({ app })

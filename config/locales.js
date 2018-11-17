@@ -1,6 +1,6 @@
-import en from '../app/locales/en'
-import es from '../app/locales/es'
-import ja from '../app/locales/ja'
+import en from 'locales/en'
+import es from 'locales/es'
+import ja from 'locales/ja'
 
 export default {
   en,

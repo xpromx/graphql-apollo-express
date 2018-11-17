@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node server.js",
+    "start": "nodemon -e js,graphql --exec NODE_PATH=./app babel-node server.js",
     "db:migrate": "knex migrate:latest --knexfile=database/knexfile.js",
     "db:migrate:make": "knex migrate:make --knexfile=database/knexfile.js",
     "db:seed": "knex seed:run --knexfile=database/knexfile.js"

@@ -1,5 +1,5 @@
-import JSON from '../app/scalars/JsonScalar'
-import Authenticate from '../app/resolvers/Authenticate'
+import JSON from 'scalars/JsonScalar'
+import Authenticate from 'resolvers/Authenticate'
 
 const resolvers = {
   Query: {
