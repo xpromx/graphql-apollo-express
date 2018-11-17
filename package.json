@@ -7,7 +7,8 @@
     "start": "nodemon -e js,graphql --exec NODE_PATH=./app babel-node server.js",
     "db:migrate": "knex migrate:latest --knexfile=database/knexfile.js",
     "db:migrate:make": "knex migrate:make --knexfile=database/knexfile.js",
-    "db:seed": "knex seed:run --knexfile=database/knexfile.js"
+    "db:seed": "knex seed:run --knexfile=database/knexfile.js",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -23,11 +24,13 @@
     "express": "^4.16.4",
     "graphql": "^14.0.2",
     "indicative": "^5.0.8",
+    "jest": "^23.6.0",
     "knex": "^0.15.2",
     "merge-graphql-schemas": "^1.5.8",
     "moment": "^2.22.2",
     "mysql": "^2.16.0",
-    "objection": "^1.4.0"
+    "objection": "^1.4.0",
+    "supertest": "^3.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
