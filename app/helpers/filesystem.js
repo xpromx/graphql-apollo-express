@@ -56,8 +56,13 @@ class Drive {
     return parts[parts.length - 1].toLowerCase()
   }
 
-  static getUrl = (path) => {
+  getUrl = (path) => {
     return process.env.S3_URL + path
+  }
+
+  makeThumb = async (path, stream, w, h) => {
+    const data = await sharp(stream).resize(w, h).toBuffer()
+    return this.upload(path, data)
   }
 }
 
