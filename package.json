@@ -8,7 +8,7 @@
     "db:migrate": "knex migrate:latest --knexfile=database/knexfile.js",
     "db:migrate:make": "knex migrate:make --knexfile=database/knexfile.js",
     "db:seed": "knex seed:run --knexfile=database/knexfile.js",
-    "test": "jest"
+    "test": " NODE_PATH=./app jest --detectOpenHandles --forceExit"
   },
   "keywords": [],
   "author": "",

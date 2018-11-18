@@ -18,9 +18,8 @@ Object.keys(middlewares).map((key) => {
 
 // GraphQL server
 server.applyMiddleware({ app })
-
 const port = process.env.PORT || 4000
-app.listen({ port: port }, () =>
+module.exports = app.listen({ port: port }, () =>
   console.log(
     `🚀 Server ready at http://localhost:${port}${server.graphqlPath}`
   )

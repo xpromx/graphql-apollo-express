@@ -1,8 +1,16 @@
 import request from 'supertest'
-const graphQLEndpoint = 'http://localhost:4040/graphql'
+let server
 
 describe('Query Users', () => {
-  test('It should return the list of users', async (done) => {
+  beforeAll(() => {
+    server = require('../server')
+  })
+
+  afterAll((done) => {
+    server.close()
+    setTimeout(done, 1000)
+  })
+  test('It should return the list of users', async () => {
     const query = {
       query: `
         {
@@ -16,9 +24,8 @@ describe('Query Users', () => {
         `
     }
 
-    const response = await request(graphQLEndpoint).post('?').send(query)
+    const response = await request(server).post('/graphql').send(query)
     expect(response.body).toHaveProperty('data')
     expect(response.body.data.users.nodes.length).toBeGreaterThan(1)
-    done()
   })
 })
