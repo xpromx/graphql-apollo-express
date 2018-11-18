@@ -10,13 +10,12 @@ export default class LocalDrive extends BaseDrive {
   upload = (path, stream) => {
     const filePath = this.config.path + '/' + path
     const folders = _path.dirname(filePath)
-    console.log(folders)
 
-    fs.mkdir(folders, { recursive: true }, (err) => {
+    return fs.mkdir(folders, { recursive: true }, (err) => {
       if (err) throw err
       fs.writeFile(filePath, stream, (err, data) => {
-        if (err) console.log(err)
-        console.log('Successfully Written to File.')
+        if (err) throw err
+        return data
       })
     })
   }

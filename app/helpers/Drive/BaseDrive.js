@@ -1,6 +1,7 @@
 import axios from 'axios'
 import sharp from 'sharp'
 import moment from 'moment'
+import _path from 'path'
 
 export default class BaseDrive {
   constructor () {}
@@ -26,8 +27,7 @@ export default class BaseDrive {
   }
 
   getFileExt = (filename) => {
-    const parts = filename.split('.')
-    return parts[parts.length - 1].toLowerCase()
+    return _path.extname(filename)
   }
 
   upload = (path, stream, bucket = null) => {}

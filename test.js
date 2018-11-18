@@ -1,6 +1,12 @@
 import Drive from './app/helpers/filesystem'
 
-const imageUrl =
-  'https://cdn.triplelights.com/uploads/2014-06/th/350x3500ExFC9ge_kyotofushimiinarilarger.jpg'
-console.log(Drive.disk('s3').getFileExt(imageUrl))
-Drive.disk().uploadFromUrl('example/1.jpg', imageUrl)
+const imageUrl = 'https://nodejs.org/static/images/logo.svg'
+// Drive.disk()
+//   .uploadFromUrl('example/1.jpg', imageUrl)
+//   .then((data) => console.log('uploaded'))
+//   .catch((e) => console.log(error))
+
+Drive.disk()
+  .uploadFromUrl('example/logo.svg', imageUrl)
+  .then((data) => console.log('uploaded'))
+  .catch((e) => console.log(error))
