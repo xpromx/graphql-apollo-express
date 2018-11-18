@@ -1,7 +1,7 @@
 import axios from 'axios'
 import moment from 'moment'
-import s3 from './S3Drive'
-import local from './LocalDrive'
+import s3 from './S3Driver'
+import local from './LocalDriver'
 
 export default class Drive {
   constructor (config) {
