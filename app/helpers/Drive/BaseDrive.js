@@ -13,9 +13,16 @@ export default class BaseDrive {
 
     return this.upload(path, res.data)
   }
-  makeThumb = async (path, stream, w, h) => {
+  resize = async (path, stream, w, h) => {
     const data = await sharp(stream).resize(w, h).toBuffer()
     return this.upload(path, data)
+  }
+
+  resizeFromUrl = async (path, url, w, h) => {
+    const res = await axios(url, {
+      responseType: 'arraybuffer'
+    })
+    return this.resize(path, res.data, w, h)
   }
 
   getPath = (filename, date = null) => {
