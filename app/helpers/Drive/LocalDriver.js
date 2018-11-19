@@ -9,8 +9,7 @@ export default class LocalDriver extends BaseDriver {
   }
   upload = (path, stream) => {
     const filePath = this.config.path + '/' + path
-    const folders = _path.dirname(filePath)
-
+    const folders = _path.resolve(_path.dirname(filePath))
     return new Promise((resolve, reject) => {
       return fs.mkdir(folders, { recursive: true }, (err) => {
         if (err) throw err
