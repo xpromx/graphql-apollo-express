@@ -11,7 +11,7 @@ class AuthDirective extends SchemaDirectiveVisitor {
 
     field.resolve = async function (...args) {
       const context = args[2]
-      const info = args[4]
+      const info = args[args.length - 1]
 
       if (!context.auth) {
         if ('operation' in info && info.operation.operation === 'mutation') {
