@@ -34,7 +34,7 @@ export default class BaseDrive {
   }
 
   getFileExt = (filename) => {
-    return _path.extname(filename)
+    return _path.extname(filename).toLowerCase()
   }
 
   upload = (path, stream, bucket = null) => {}
